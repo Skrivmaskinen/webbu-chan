@@ -6,13 +6,15 @@ $limit = 50;
  // Sök efter ungefärligt setnamn
  $result = mysqli_query($connection, "
 		SELECT 
-			sets.Setname, sets.SetID, inventory.ItemtypeID
+			sets.Setname, sets.SetID, inventory.ItemtypeID, sets.Year
 		FROM 
 			sets, inventory
 		WHERE 
 			Setname LIKE '%$search%'
 		AND
 			sets.SetID=inventory.ItemID
+		GROUP BY
+			Setname
 		ORDER BY
 			Setname
 		LIMIT 
@@ -22,8 +24,9 @@ $limit = 50;
  // Skriv ut alla poster i svaret
  print("<table>
 			<tr>
-				<td>Set ID</td>
+				<th>Set ID</th>
 				<th>Sets</th>
+				<th>Year</th>
 				<th>Set picture</th>
 			</tr>
 		");
@@ -34,6 +37,7 @@ $limit = 50;
 		 $set_name = $row['Setname'];
 		 $set_id = $row['SetID'];
 		 $itemtype_id = $row['ItemtypeID'];
+		 $year = $row['Year'];
 		 
 		$imagesearch = mysqli_query($connection, "SELECT * 
 												FROM images 
@@ -72,6 +76,7 @@ $limit = 50;
 		print("<tr>
 					<td>$set_id</td>
 				   <td><a href='http://www.student.itn.liu.se/~freno979/tnmk30/LegoMy/set_show_parts.php/?search=$set_id'>$set_name</a></td>
+				   <td>$year</td>
 				   <td><img src=\"$imagePath\"></td>
 				   
 				   
