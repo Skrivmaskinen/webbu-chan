@@ -1,0 +1,157 @@
+body {
+	background-image: url("background.png");
+	background-attachment: fixed;
+}
+
+#wrapper {
+	border-color: black;
+	width: 60vw;
+	text-align: center;
+	
+}
+/*---- BACKGROUND ----*/
+#whitener {
+	background-color: rgba(255,255,255,0.85);
+	
+	border-radius: 10px;
+	
+	width: 60vw; 
+	z-index: -1;
+	
+	margin-left: 20vw;
+	margin-right: 20vw;
+}
+/*----------------------*/
+
+
+/*------ FORM ----------*/
+form {
+	margin-top: 10px;
+	
+}
+
+#search_bar {
+	/* border visuals */
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
+	border-color: black;
+	
+	/* size */
+	margin-right: 0;
+	padding: 10px;
+	width: 300px;
+	height: 20px;
+	
+}
+/*-------------------------------------*/
+
+
+
+/* SUBMIT BUTTON */
+#submit_button {
+	font-family: 'Bungee', 'cursive';
+	font-size: 16px;
+	
+	line-height: 150%;
+	/* border visuals */
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
+	border-color: black;
+	
+	background-color: #cccccc;
+	
+	/* size and position */
+	margin-left: -6px;
+	padding: 10px;
+	vertical-align: middle;
+	height: 44px;
+	width: 120px;
+	
+	
+}
+
+#submit_button:hover {
+	background-color: #aaa;
+}
+
+#submit_button:active {
+	background-color: #444;
+}
+/* SUBMIT BUTTON END */
+/*-------------------------------------*/
+
+
+
+/* RADIO BUTTONS */
+input[type="radio"] {
+	display: none;
+	margin-bottom: 4px;
+}
+
+label {
+	display: inline-block;
+	margin-bottom: 4px;
+	padding: 4px 11px;
+	font-size: 16px;
+	background-color: #bbb;
+	font-family: 'Bungee', 'cursive';
+}
+
+.button , #submit_button{
+	cursor: pointer;
+}
+
+
+
+.button:hover {
+	box-shadow: 0 0  5px 5px white;
+}
+
+.button:active {
+	background-color: white;
+}
+
+#part_form_visual {
+	
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
+	width: 60px;
+}
+
+#set_form_visual {
+
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
+	width: 60px;
+}
+
+input[type="radio"]:checked + label {
+	background-color: #ff9900;
+}
+/* RADIO BUTTONS END */
+/*-------------------------------------*/
+
+
+
+#search_container {
+
+
+}
+
+/*----------------------*/
+
+#header {
+	font-family: 'Bungee', 'cursive';
+	font-size: 60px;
+	color: white;
+	text-align: center;
+	text-shadow: 10px 10px 10px #000;
+	
+}
+
+#text {
+	font-family: 'Bungee', 'cursive';
+	font-size: 30px;
+	color: black;
+	text-align: center;
+}
