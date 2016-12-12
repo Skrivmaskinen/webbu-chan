@@ -38,7 +38,7 @@ $limit = 200;
 		 $part_id = $row['PartID'];
 		//Skapa tabellrad.
 		print("<tr>
-				   <td><a href='http://www.student.itn.liu.se/~freno979/tnmk30/LegoMy/part_show_sets.php/?search=$part_id'>$part_name</a></td>
+				   <td><a href='http://www.student.itn.liu.se/~freno979/tnmk30/LegoMy/part_page.php?search=$part_id'>$part_name</a></td>
 			   </tr>
 				");
 	 

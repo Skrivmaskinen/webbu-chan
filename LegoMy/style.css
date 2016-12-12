@@ -8,6 +8,7 @@ body {
 	width: 60vw;
 	text-align: center;
 	
+	
 }
 /*---- BACKGROUND ----*/
 #whitener {
@@ -20,6 +21,7 @@ body {
 	
 	margin-left: 20vw;
 	margin-right: 20vw;
+	padding-bottom: 2vw;
 }
 /*----------------------*/
 
@@ -140,7 +142,7 @@ input[type="radio"]:checked + label {
 
 /*----------------------*/
 
-#header {
+#header h1{
 	font-family: 'Bungee', 'cursive';
 	font-size: 60px;
 	color: white;
@@ -155,3 +157,83 @@ input[type="radio"]:checked + label {
 	color: black;
 	text-align: center;
 }
+
+
+/* TABELL DESIGN */
+/*-------------------------------------*/
+table{
+	
+	margin: auto;
+	margin-top: 20px;
+	border: 5px solid rgba(0,0,100,0.35);
+	border-radius: 10px;
+	border-spacing: 0px;
+	width: 80%;
+	
+}
+
+table a{
+	color: black;
+	text-decoration: none;
+}
+
+table a:hover{
+	color: #bfbfbf;
+}
+
+tr{
+	
+	border: 5px solid black;
+	
+}
+
+tr:nth-child(even){
+	background-color: rgba(242, 242, 242, 1.0);
+}
+
+tr:nth-child(odd){
+	background-color:  rgba(210, 220, 240, 1.0);
+}
+
+tr:first-child{
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+tr:last-child{
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+td{
+	padding: 15px;
+}
+
+
+
+/* TABELL DESIGN END*/
+/*-----------------------------------*/
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+a:hover {
+	text-decoration: none;
+	color: white;
+}
+
+a:active {
+	text-decoration: none;
+	color: white;
+}
+h1{
+	font-size:
+}
+
+
+
+
+
+
