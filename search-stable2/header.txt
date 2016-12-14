@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang = "en">
+	<head>
+		<meta charset="utf-8">
+		<link href="style.css" media="screen" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+		<title>Lego Search</title>
+	</head>
+	
+	<body>
+		<div id="header">
+			<h1>
+				<a href="index.php"> 
+					Lego Search Engine  
+				</a>
+			</h1>
+		</div>
+		
+		<div id="whitener">
