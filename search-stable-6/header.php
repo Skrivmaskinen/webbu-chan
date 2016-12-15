@@ -17,6 +17,15 @@
 		</header>
 		
 		<div id="wrapper">
+			<div id="help_info">
+				<img id="help_img" src="duck.png">
+				<p> <span>INFO!</span> <br>
+					This is a lego search engine. Select <span>part</span> to search for lego parts. 
+					Select <span>set</span> to search for lego sets. 
+					You can only search for the <span>name</span> of the part or set in the search bar. 
+					Then press the <span>search button</span>.
+				</p>
+			</div>
 			<h2> 
 				Search for ...
 			</h2>
