@@ -3,6 +3,26 @@ body {
 	background-image: url("bg.png");
 }
 
+@media screen and (min-width: 900px) {
+	#wrapper {
+		width: 60vw;
+	}
+}
+
+@media screen and (max-width: 899px) {
+	#wrapper {
+		width: 500px;	
+	}
+}
+
+#wrapper {
+	background-color: rgba(255,255,255,0.85);
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 2vw;
+}
+
 form {
 	text-align: center;
 }
@@ -31,15 +51,35 @@ h1 a:active {
 }
 /*-----------------------------------*/
 
-/*---- BACKGROUND ----*/
-#wrapper {
-	background-color: rgba(255,255,255,0.85);
-	border-radius: 10px;
-	width: 60vw;
-	margin-left: 20vw;
-	margin-right: 20vw;
-	padding-bottom: 2vw;
+
+/*------- DUCK HELP -----------*/
+
+#help_img {
+	border-style: none;
+	margin: 5px 0 0 5px;
 }
+
+#help_info p {
+	display: none;
+}
+
+#help_info {
+	position: absolute;
+	cursor: help;
+}
+
+#help_info:hover p{
+	display: block;
+	max-width: 150px;
+	padding: 2px;
+	background-color: white;
+	border-radius: 4px;
+}
+
+#help_info span {
+	font-weight: bold;
+}
+
 /*-----------------------------------*/
 
 /*------ FORM ----------*/
@@ -243,16 +283,18 @@ ul {
 }
 
 .prev_next_buttons {
-	
 	font-family: 'Bungee', 'cursive';
 	font-size: 20px;
 	color: black;
 	display: inline;
 	margin: 50px;
-	
 }
 
-/*.prev_next_buttons a:hover {
+.prev_next_buttons a:link{
+	color: black;
+}
+
+.prev_next_buttons a:hover {
 	color: black;
 }
 
@@ -263,5 +305,5 @@ ul {
 .prev_next_buttons a:visited {
 	color: black
 }
-*/
+
 /*-----------------------------*/
