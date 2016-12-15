@@ -2,7 +2,7 @@
 
 $search = $_GET['search_key'];
 
-//Maximum number of results.
+//Maximum number of results
 $limit = 20;
 //add 1 for checking if there are more results than $limit 
 $limit++;
