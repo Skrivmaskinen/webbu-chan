@@ -135,7 +135,7 @@ while ($row = mysqli_fetch_array($result)) {
 				<td>$part_id</td>
 				<td><a href='part_page.php?search=$part_id'>$part_name</a></td>
 				<td> $quantity </td>
-				<td> <img src=\"$imagePath\"> </td>
+				<td> <img src=\"$imagePath\" alt=\"lego part $part_name\"> </td>
 			   </tr>
 				");
 	}

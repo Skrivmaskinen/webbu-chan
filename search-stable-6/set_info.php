@@ -72,7 +72,11 @@ else
 
 //Print info
 print(" <h1>$set_name</h1>
-	<img src=\"$imagePath\">
+	<img id=\"focus_image\" src=\"$imagePath\" alt=\"lego part $part_name\">
+	<div id=\"the_modal\" class=\"modal\">
+			<span id=\"close\">&times;</span>
+			<img class=\"modal_content\" id=\"img01\"> 
+	</div>
 	<p><span>SetID:</span> $set_id</p>
 	<p><span>Year:</span> $year</p>
 	<p><span>Category:</span> $category</p>");

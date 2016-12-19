@@ -124,7 +124,7 @@ $count = 0;
 						<td>$set_id</td>
 					   <td><a href='set_page.php?search=$set_id'>$set_name</a></td>
 					   <td>$year</td>
-					   <td><img src=\"$imagePath\"></td>
+					   <td><img src=\"$imagePath\" alt=\"lego set $set_name\"></td>
 				   </tr>");
 		}
  } // end while

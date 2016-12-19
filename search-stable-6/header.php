@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<link href="style.css" media="screen" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+		<script src="script.js"></script>
 		<title>Lego Search</title>
 	</head>
 	
