@@ -64,8 +64,8 @@ $count_search = mysqli_query($connection, "
 				PartID LIKE '%$search%')
 
 		");
-$count_row = mysqli_fetch_array($count_search);
-print($count_row['x']);
+$count_row = mysqli_fetch_array($count_search)['x'];
+print("<h3>Your search gave $count_row results</h3>");
 
 $number_of_results = mysqli_num_rows($result);
 //Link to next page
