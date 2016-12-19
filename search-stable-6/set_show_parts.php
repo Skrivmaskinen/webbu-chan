@@ -1,5 +1,8 @@
 <?php
-$search = $_GET['search'];
+
+$search = trim($_GET['search']);
+if(strlen($search)>=3)
+{
 //Maximum number of results.
 $limit = 20;
 //add 1 for checking if there are more results than $limit 
@@ -145,4 +148,5 @@ while ($row = mysqli_fetch_array($result)) {
 print("</table>");
 //include buttons for page change buttons
 include ("prev_next_buttons.php");
+} else{print("<h3>Your search needs to contain least 3 characters.</h3>");}
 ?>
