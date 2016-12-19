@@ -1,0 +1,379 @@
+/*------DESIGN---*/
+body {
+	background-image: url("bg.png");
+}
+
+@media screen and (min-width: 900px) {
+	#wrapper {
+		width: 60vw;
+	}
+}
+
+@media screen and (max-width: 899px) {
+	#wrapper {
+		width: 500px;	
+	}
+}
+
+#wrapper {
+	background-color: rgba(255,255,255,0.85);
+	border-radius: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 2vw;
+}
+
+form {
+	text-align: center;
+}
+
+img {
+	border: 1px solid rgba(0,0,100,0.35);
+	border-radius: 4px;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 a {
+	color: white;
+}
+
+h1 a:hover {
+	text-decoration: none;
+	color: white;
+}
+
+h1 a:active {
+	text-decoration: none;
+	color: white;
+}
+/*-----------------------------------*/
+
+
+/*------- DUCK HELP -----------*/
+
+#help_img {
+	border-style: none;
+	margin: 5px 0 0 5px;
+}
+
+#help_info p {
+	display: none;
+}
+
+#help_info {
+	position: absolute;
+	cursor: help;
+}
+
+#help_info:hover p{
+	display: block;
+	max-width: 150px;
+	padding: 2px;
+	background-color: white;
+	border-radius: 4px;
+}
+
+#help_info span {
+	font-weight: bold;
+}
+
+/*-----------------------------------*/
+
+/*------ FORM ----------*/
+form {
+	margin-top: 10px;
+}
+
+#search_bar {
+	/* border visuals */
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
+	border-color: black;
+	
+	/* size */
+	margin-right: 0;
+	padding: 10px;
+	width: 300px;
+	height: 20px;
+}
+/*-------------------------------------*/
+
+/* ------- SUBMIT BUTTON ------- */
+#submit_button {
+	font-family: 'Bungee', 'cursive';
+	font-size: 16px;
+	
+	line-height: 150%;
+	/* border visuals */
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
+	border-color: black;
+	
+	background-color: #cccccc;
+	
+	/* size and position */
+	margin-left: -6px;
+	padding: 10px;
+	vertical-align: middle;
+	height: 44px;
+	width: 120px;
+	-webkit-appearance: none;
+}
+
+#submit_button:hover {
+	/*background-color: #aaa;*/
+	box-shadow: inset 0 0 10px 2px rgba(0,0,0,0.5);
+}
+
+#submit_button:active {
+	background-color: #444;
+}
+/*-------------------------------------*/
+
+/* ------- RADIO BUTTONS ------- */
+input[type="radio"] {
+	display: none;
+	margin-bottom: 4px;
+}
+
+label {
+	display: inline-block;
+	margin-bottom: 4px;
+	padding: 4px 11px;
+	font-size: 16px;
+	background-color: #bbb;
+	font-family: 'Bungee', 'cursive';
+}
+
+.button , #submit_button{
+	cursor: pointer;
+}
+
+.button:hover {
+	box-shadow: 0 0 5px 5px white;
+}
+
+.button:active {
+	background-color: white;
+}
+
+#part_form_visual {
+	
+	border-bottom-left-radius: 20px;
+	border-top-left-radius: 20px;
+	width: 60px;
+}
+
+#set_form_visual {
+
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
+	width: 60px;
+}
+
+input[type="radio"]:checked + label {
+	background-color: #ff9900;
+}
+/*-------------------------------------*/
+
+/*--- Titles ----*/
+
+header h1{
+	font-family: 'Bungee', 'cursive';
+	font-size: 60px;
+	color: white;
+	text-align: center;
+	text-shadow: 10px 10px 10px #000;
+}
+
+h2 {
+	font-family: 'Bungee', 'cursive';
+	font-size: 30px;
+	color: black;
+	text-align: center;
+}
+/*-------------------------------------*/
+
+/* ----- TABELL DESIGN ------ */
+table{
+	margin: auto;
+	margin-top: 20px;
+	border: 5px solid rgba(0,0,100,0.35);
+	border-radius: 10px;
+	border-spacing: 0px;
+	width: 80%;
+}
+
+table a{
+	color: black;
+	text-decoration: none;
+}
+
+table a:hover{
+	color: #bfbfbf;
+}
+
+tr:nth-child(even){
+	background-color: rgb(242, 242, 242);
+}
+
+tr:nth-child(odd){
+	background-color:  rgb(210, 220, 240);
+}
+
+tr:first-child{
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+}
+
+tr:last-child{
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+}
+
+td{
+	padding: 15px;
+}
+/*-----------------------------------*/
+
+/* ---- PART / SET PAGE --- */
+.itemdetails {
+	margin: auto;
+	margin-top: 2vw;
+	padding: 20px;
+	width: 80%;
+	background: rgb(210, 220, 240);
+	border: 2px solid rgba(0,0,100,0.35);
+	border-radius: 10px;
+}
+
+#colors {
+	border-bottom-left-radius: 10px;
+	border-top-left-radius: 10px;
+	max-height: 200px;
+	overflow: auto;
+	border: 1px solid rgba(0,0,100,0.35);
+}
+#colors table {
+	margin: 0;
+	width: 100%;
+	border: none;
+}
+
+.itemdetails p{
+	margin-left: 4;
+}
+
+.itemdetails span{
+	font-weight: bold;
+}
+
+.itemdetails img {
+	max-width: 40%;
+}
+/*-----------------------------------*/
+
+/* ----- PREV / NEXT BUTTONS ----- */
+/*css inspired from http://jsfiddle.net/heZBT/ */
+ul {
+	list-style-type: none;
+	text-align: center;
+
+}
+
+.prev_next_buttons {
+	font-family: 'Bungee', 'cursive';
+	font-size: 20px;
+	color: black;
+	display: inline;
+	margin: 50px;
+}
+
+.prev_next_buttons a:link{
+	color: black;
+}
+
+.prev_next_buttons a:hover {
+	color: black;
+}
+
+.prev_next_buttons a:active {
+	color: white;
+}
+
+.prev_next_buttons a:visited {
+	color: black
+}
+
+/*-----------------------------*/
+
+/*----------- MODAL IMAGE -----------*/
+#focus_image {
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+#focus_image:hover {
+	opacity: 0.7;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 10;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0,0,0);
+	background-color: rgba(0,0,0,0.9);
+}
+
+.modal_content {
+	margin: auto;
+	display: block;
+	width: 80%;
+	max-width: 700px;
+}
+
+.modal_content {
+	-webkit-animation: zoom;
+	-webkit-animation-duration: 0.6;
+	animation-name: zoom;
+	animation-duration: 0.6;
+}
+
+@-webkit-keyframes zoom {
+	from {-webkit-transform: scale(0)}
+	to {-webkit-transform: scale(1)}
+}
+
+@keyframes zoom {
+	from {transform: scale(0)}
+	to {transform: scale(1)}
+}
+
+#close {
+	position: absolute;
+	top: 15px;
+	right: 35px;
+	color: #f1f1f1;
+	font-size: 40px;
+	font-weight: bold;
+	transition: 0.3s;
+}
+
+#close:hover, #close:focus {
+	color: #bbb;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+
+/*-----------------------------------*/
