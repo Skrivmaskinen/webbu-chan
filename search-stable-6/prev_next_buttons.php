@@ -17,7 +17,6 @@
 			}else{
 				print("next");
 			}
-	print("	
-		</li>
+	print("	</li>
 	</ul>");
 ?>
