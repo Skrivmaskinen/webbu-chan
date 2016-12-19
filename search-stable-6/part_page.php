@@ -1,6 +1,7 @@
 <?php
 	include("header.php");
-?>	
+?>
+<script src="script.js"></script>	
 			<div class="itemdetails">
 				<?php include("part_info.php"); ?>
 			</div>

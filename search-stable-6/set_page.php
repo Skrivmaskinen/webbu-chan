@@ -1,7 +1,7 @@
 <?php
 	include("header.php");
 ?>
-
+<script src="script.js"></script>
 			<div class="itemdetails">
 				<?php include("set_info.php"); ?>
 			</div>

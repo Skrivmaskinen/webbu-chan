@@ -19,7 +19,7 @@ window.onload = function() {
 	}	
 }
 
-/*----------------------------------------------------------
-THIS CODE WAS INSPIRED FROM
-http://www.w3schools.com/howto/howto_css_modal_images.asp 
------------------------------------------------------------/*
+//----------------------------------------------------------
+//THIS CODE WAS INSPIRED FROM
+//http://www.w3schools.com/howto/howto_css_modal_images.asp 
+//-----------------------------------------------------------
