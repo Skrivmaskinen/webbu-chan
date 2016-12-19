@@ -1,5 +1,7 @@
 <?php
-$search = $_GET['search_key'];
+$search = trim($_GET['search_key']);
+if(strlen($search)>=3)
+{
 //Maximum number of results.
 $limit = 20;
 //add 1 for checking if there are more results than $limit 
@@ -23,7 +25,9 @@ $result = mysqli_query($connection, "
 		FROM 
 			sets
 		WHERE 
-			Setname LIKE '%$search%'
+			(Setname LIKE '%$search%'
+		OR
+			SetID LIKE '%$search%')
 		GROUP BY
 			Setname
 		ORDER BY
@@ -36,6 +40,20 @@ $result = mysqli_query($connection, "
 //set limits to original state
 $limit--;
 //Number of results
+$count_search = mysqli_query($connection, "
+		SELECT 
+			count(DISTINCT Setname) as x
+		FROM 
+			sets
+		WHERE 
+			(Setname LIKE '%$search%'
+		OR
+			SetID LIKE '%$search%')
+
+		");
+$count_row = mysqli_fetch_array($count_search);
+print($count_row['x']);
+
 $number_of_results = mysqli_num_rows($result);
 //Link to next page
 $change_page_url = "?";
@@ -140,7 +158,7 @@ $next_page = $change_page_url."&start_index=".$start_index_next;
 					<td>$set_id</td>
 				   <td><a href='set_page.php?search=$set_id'>$set_name</a></td>
 				   <td>$year</td>
-				   <td><img src=\"$imagePath\" alt=\"lego set $set_name\"></td>
+				   <td><img src=\"$imagePath\"></td>
 			   </tr>");
 		}
  } // end while
@@ -148,4 +166,5 @@ $next_page = $change_page_url."&start_index=".$start_index_next;
 //End of table/add prev-next buttons
  print("</table>");
  include ("prev_next_buttons.php");
+ } else{print("<h3>Your search needs to contain least 3 characters.</h3>");}
 ?>

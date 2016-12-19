@@ -1,9 +1,10 @@
 <?php
 
-$search = $_GET['search_key'];
-
+$search = trim($_GET['search_key']);
+if(strlen($search)>=3)
+{
 //Maximum number of results
-$limit = 20;
+$limit = 10;
 //add 1 for checking if there are more results than $limit 
 $limit++;
 //Initialize start_index to 0. (In case there is none in URL)
@@ -17,6 +18,8 @@ if(isset($_GET['start_index']))
 
 //Connect to database.
 $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
+//Query to server.
+
 
 //Query to server.
 $result = mysqli_query($connection, "
@@ -27,14 +30,18 @@ $result = mysqli_query($connection, "
 		
 		WHERE 
 				parts.PartID=inventory.ItemID
-			AND
-				Partname LIKE '%$search%'
+			
 			AND
 				inventory.ColorID = colors.ColorID
+			AND
+				(Partname LIKE '%$search%'
+			OR
+				PartID LIKE '%$search%')
+			
+			
 		GROUP BY
 			Partname
-		ORDER BY
-			Partname
+		
 		LIMIT 
 			$limit
 		Offset
@@ -43,6 +50,23 @@ $result = mysqli_query($connection, "
 //set limits to original state
 $limit--;	
 //Number of results
+$count_search = mysqli_query($connection, "
+		SELECT 
+			count(DISTINCT PartID) as x
+		FROM 
+			inventory, parts
+		
+		WHERE 
+				ItemID=PartID
+			AND
+				(Partname LIKE '%$search%'
+			OR
+				PartID LIKE '%$search%')
+
+		");
+$count_row = mysqli_fetch_array($count_search);
+print($count_row['x']);
+
 $number_of_results = mysqli_num_rows($result);
 //Link to next page
 $change_page_url = "?";
@@ -145,7 +169,7 @@ $count = 0;
 		print("<tr>
 				<td>$part_id</td>
 				<td><a href='part_page.php?search=$part_id'>$part_name</a></td>
-				<td> <img src=\"$imagePath\" alt=\"lego part $part_name\"> </td>
+				<td> <img src=\"$imagePath\"> </td>
 			   </tr>
 				");
 		}
@@ -156,4 +180,5 @@ $count = 0;
  //End of table/add prev-next buttons
  print("</table>");
  include ("prev_next_buttons.php");
+ } else{print("<h3>Your search needs to contain least 3 characters.</h3>");}
 ?>
