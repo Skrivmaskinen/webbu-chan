@@ -1,5 +1,7 @@
 <?php
-$search = $_GET['search'];
+$search = trim($_GET['search']);
+if(strlen($search)>=3)
+{
 // Koppla upp mot databasen
 $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
 // Sök efter ungefärligt bitnamn
@@ -88,5 +90,5 @@ print(" <h1>$part_name</h1>
 
 include("part_show_colors.php");
 print("</div>");
-
+} else{print("<h3>Your search needs to contain least 3 characters.</h3>");}
 ?>
