@@ -1,5 +1,8 @@
 <?php
-$search = $_GET['search'];
+
+$search = trim($_GET['search']);
+if(strlen($search)>=3)
+{
 $limit = 20;
  // Connect to database
  $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
@@ -81,6 +84,6 @@ print(" <h1>$set_name</h1>
 	<p><span>Year:</span> $year</p>
 	<p><span>Category:</span> $category</p>");
 
-
+} else{print("<h3>Your search needs to contain least 3 characters.</h3>");}
  
 ?>
