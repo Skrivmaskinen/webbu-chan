@@ -18,7 +18,6 @@ if(isset($_GET['start_index']))
 
 //Connect to database.
 $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
-//Query to server.
 
 
 //Query to server.
