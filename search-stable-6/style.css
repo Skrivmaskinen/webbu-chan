@@ -5,7 +5,7 @@ body {
 
 @media screen and (min-width: 900px) {
 	#wrapper {
-		width: 60vw;
+		width: 60%;
 	}
 }
 
@@ -18,8 +18,7 @@ body {
 #wrapper {
 	background-color: rgba(255,255,255,0.85);
 	border-radius: 10px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: auto;
 	padding-bottom: 2vw;
 }
 
@@ -103,6 +102,8 @@ form {
 	padding: 10px;
 	width: 300px;
 	height: 20px;
+	vertical-align: middle;
+
 }
 /*-------------------------------------*/
 
@@ -222,11 +223,11 @@ table a:hover{
 	color: #bfbfbf;
 }
 
-tr:nth-child(even){
+tr:nth-child(odd){
 	background-color: rgb(242, 242, 242);
 }
 
-tr:nth-child(odd){
+tr:nth-child(even){
 	background-color:  rgb(210, 220, 240);
 }
 
@@ -281,7 +282,30 @@ td{
 	max-width: 40%;
 }
 /*-----------------------------------*/
+/* ----- SHOW TYPE BUTTONS ----- */
+ul {
+	list-style-type: none;
+	text-align: center;
 
+}
+
+.show_type_buttons {
+	font-family: 'Bungee', 'cursive';
+	font-size: 20px;
+	color: black;
+	display: inline;
+	margin: 50px;
+}
+
+.show_type_buttons a{
+	color: #ff9900;
+}
+
+.show_type_buttons a:active {
+	color: white;
+}
+
+/*-----------------------------*/
 /* ----- PREV / NEXT BUTTONS ----- */
 ul {
 	list-style-type: none;
@@ -292,25 +316,17 @@ ul {
 .prev_next_buttons {
 	font-family: 'Bungee', 'cursive';
 	font-size: 20px;
-	color: black;
+	color: grey;
 	display: inline;
 	margin: 50px;
 }
 
-.prev_next_buttons a:link{
-	color: black;
-}
-
-.prev_next_buttons a:hover {
+.prev_next_buttons a{
 	color: black;
 }
 
 .prev_next_buttons a:active {
 	color: white;
-}
-
-.prev_next_buttons a:visited {
-	color: black
 }
 
 /*-----------------------------*/

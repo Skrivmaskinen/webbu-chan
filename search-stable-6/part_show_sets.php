@@ -1,5 +1,4 @@
 <?php
-$search = $_GET['ID'];
 
 $limit = 20;
 //add 1 for checking if there are more results than $limit 
@@ -10,11 +9,10 @@ $start_index = 0;
 //If there exist a start index in the URL, change start_index to that.
 if(isset($_GET['start_index']))
 {
-	$start_index = $_GET['start_index'];
+	$start_index = mysqli_real_escape_string($connection, $_GET['start_index']);
 }
 
  // Connect to database
- $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
  // Search for set name
  $result = mysqli_query($connection, "
 		SELECT 
@@ -66,12 +64,12 @@ $start_index_prev = 0;
 //Change start_index_next and start_index_prev to be values relative to the current start_index.
 if(isset($_GET['start_index'])) 
 {
-	$start_index_next = $_GET['start_index'] + $limit;
+	$start_index_next = $start_index + $limit;
 	
 	//Change start_index_prev only if the start index will lead to results. (i.e. no negative start_index)
 	if($_GET['start_index'] >= $limit)
 	{
-		$start_index_prev = $_GET['start_index'] - $limit;
+		$start_index_prev = $start_index - $limit;
 	}
 	
 }
@@ -145,4 +143,5 @@ $count = 0;
  
  print("</table>"); //end table
  include ("prev_next_buttons.php");
+ mysqli_close($connection);
 ?>

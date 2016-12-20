@@ -53,7 +53,8 @@ $limit--;
 $number_of_results = mysqli_num_rows($result);
 // If there are no matches to search, don't print any results
 if($number_of_results == 0){
-	die("<h3>Your search gave no results");
+	 mysqli_close($connection);
+	die("<h3>Your search gave no results<h3>");
 }
 $count_search = mysqli_query($connection, "
 		SELECT 

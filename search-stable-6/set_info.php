@@ -1,10 +1,10 @@
 <?php
 
-$search = $_GET['ID'];
 $limit = 20;
  // Connect to database
  $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
- 
+ $search =  mysqli_real_escape_string($connection, $_GET['ID']);
+
  // Search set name
  $result = mysqli_query($connection, "
 		SELECT 
@@ -21,6 +21,7 @@ $limit = 20;
 // If ID is is invalid, don't print any more info
 $number_of_results = mysqli_num_rows($result);
 if($number_of_results == 0){
+	 mysqli_close($connection);
 	die("<h3>This item does not exist</h3>");
 }
 

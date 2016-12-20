@@ -1,8 +1,9 @@
 <?php
-$search = $_GET['ID'];
-// Koppla upp mot databasen
+
+// Connect database
 $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
-// Sök efter ungefärligt bitnamn
+$search = mysqli_real_escape_string($connection, $_GET['ID']);
+// Search for an approximate partname 
 $result = mysqli_query($connection, "
 		SELECT 
 			Partname, PartID, ItemtypeID, inventory.ColorID
@@ -21,10 +22,11 @@ $result = mysqli_query($connection, "
 // If ID is is invalid, don't print any more info
 $number_of_results = mysqli_num_rows($result);
 if($number_of_results == 0){
+	 mysqli_close($connection);
 	die("<h3>This item does not exist</h3>");
 }
 $row = mysqli_fetch_array($result);				  
-//Sätt alla vairiabler.
+//Set variables
 $itemtype_id = $row['ItemtypeID'];
  
 $part_name = $row['Partname'];

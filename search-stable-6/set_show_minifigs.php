@@ -17,20 +17,18 @@ $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
 // Search on part name
 $result = mysqli_query($connection, "
 	SELECT 
-		Partname, PartID, ItemtypeID, inventory.ColorID, inventory.Quantity
+		Minifigname, MinifigID, ItemtypeID, inventory.Quantity
 	FROM 
-		parts, inventory, colors
+		minifigs, inventory
 	
 	WHERE 
-			parts.PartID=inventory.ItemID
+			minifigs.MinifigID=inventory.ItemID
 		AND
 			SetID = '$search'
-		AND
-			inventory.ColorID = colors.ColorID
 	GROUP BY
-		Partname
+		Minifigname
 	ORDER BY
-		Partname
+		Minifigname
 	LIMIT 
 		$limit
 	Offset
@@ -42,25 +40,21 @@ $number_of_results = mysqli_num_rows($result);
 // If there are no matches to search, don't print any results
 if($number_of_results == 0){
 	 mysqli_close($connection);
-	die("<h3>This set contains no parts</h3>");
+	die("<h3>This set contains no minifigs</h3>");
 }
 	
 $count_search = mysqli_query($connection, "
 		SELECT 
-			count(DISTINCT Partname) as count
+			count(DISTINCT Minifigname) as count
 		FROM 
-		parts, inventory, colors
-	
-	WHERE 
-			parts.PartID=inventory.ItemID
+			minifigs, inventory
+		WHERE 
+			minifigs.MinifigID=inventory.ItemID
 		AND
 			SetID = '$search'
-		AND
-			inventory.ColorID = colors.ColorID
-
 		");
 $count_row = mysqli_fetch_array($count_search)['count'];
-print("<h3>This set contains the following $count_row parts:</h3>");
+print("<h3>This set contains the following $count_row minifigs:</h3>");
 
 
 //set limits to original state
@@ -99,10 +93,10 @@ $next_page = $change_page_url."&start_index=".$start_index_next;
 // Print results
 print("<table>
 		<tr>
-			<th>Part ID</th>
-			<th>Part name</th>
+			<th>Minifig ID</th>
+			<th>Minifig name</th>
 			<th>Quantity</th>
-			<th>Part picture</th>
+			<th>Minifig picture</th>
 			
 		</tr>
 	");
@@ -112,9 +106,8 @@ while ($row = mysqli_fetch_array($result)) {
 	//Set variables
 	$itemtype_id = $row['ItemtypeID'];
 	 
-	$part_name = $row['Partname'];
-	$part_id = $row['PartID']; 
-	$color_id = $row['ColorID'];
+	$part_name = $row['Minifigname'];
+	$part_id = $row['MinifigID']; 
 	$quantity = $row['Quantity'];
 	
 	//Conncet to database to get images
@@ -138,13 +131,13 @@ while ($row = mysqli_fetch_array($result)) {
 	if($imageInfo['has_jpg']) 
 	{ 
 		// Use JPG if it exists
-		$filename = "$itemtype_id/$color_id/$part_id.jpg";
+		$filename = "$itemtype_id/$part_id.jpg";
 		$imagePath = $prefix.$filename;
 	} 
 	else if($imageInfo['has_gif'] ) 
 	{ 
 		// Use GIF if JPG is unavailable
-		$filename = "$itemtype_id/$color_id/$part_id.gif";
+		$filename = "$itemtype_id/$part_id.gif";
 		$imagePath = $prefix.$filename;
 	} 
 	else 

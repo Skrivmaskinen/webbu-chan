@@ -1,8 +1,6 @@
 <?php
-$search = $_GET['ID'];
 $limit = 50;
- // Connect to database
- $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
+
  // Get all colors for a part
  $result = mysqli_query($connection, "
 		SELECT 
