@@ -1,7 +1,5 @@
 <?php
-$search = trim($_GET['search']);
-if(strlen($search)>=3)
-{
+$search = $_GET['ID'];
 $limit = 50;
  // Connect to database
  $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
@@ -38,5 +36,4 @@ $limit = 50;
  } // end while
  
  print("</table>");
-} else{print("<h3>Your search needs to contain least 3 characters.</h3>");}
 ?>

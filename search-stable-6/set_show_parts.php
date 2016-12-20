@@ -1,8 +1,5 @@
 <?php
-
-$search = trim($_GET['search']);
-if(strlen($search)>=3)
-{
+$search = $_GET['ID'];
 //Maximum number of results.
 $limit = 20;
 //add 1 for checking if there are more results than $limit 
@@ -40,15 +37,34 @@ $result = mysqli_query($connection, "
 	Offset
 		$start_index 
 	");
+	
+$count_search = mysqli_query($connection, "
+		SELECT 
+			count(DISTINCT Partname) as count
+		FROM 
+		parts, inventory, colors
+	
+	WHERE 
+			parts.PartID=inventory.ItemID
+		AND
+			SetID = '$search'
+		AND
+			inventory.ColorID = colors.ColorID
+
+		");
+$count_row = mysqli_fetch_array($count_search)['count'];
+print("<h3>This set contains the following $count_row parts:</h3>");
+
+
 //set limits to original state
 $limit--;
 //Link to next page
 $change_page_url = "?";
 
 //Add search to link.
-if(isset($_GET['search'])) 
+if(isset($_GET['ID'])) 
 {
-	$change_page_url = $change_page_url."search=".$_GET['search'];
+	$change_page_url = $change_page_url."ID=".$search;
 }
 
 //Intitialize the start index of next page and previous page.
@@ -136,9 +152,9 @@ while ($row = mysqli_fetch_array($result)) {
 		//Write table
 		print("<tr>
 				<td>$part_id</td>
-				<td><a href='part_page.php?search=$part_id'>$part_name</a></td>
+				<td><a href='part_page.php?ID=$part_id'>$part_name</a></td>
 				<td> $quantity </td>
-				<td> <img src=\"$imagePath\" alt=\"lego part $part_name\"> </td>
+				<td> <img src=\"$imagePath\" alt=\"Image of $part_name\"> </td>
 			   </tr>
 				");
 	}
@@ -148,5 +164,4 @@ while ($row = mysqli_fetch_array($result)) {
 print("</table>");
 //include buttons for page change buttons
 include ("prev_next_buttons.php");
-} else{print("<h3>Your search needs to contain least 3 characters.</h3>");}
 ?>

@@ -14,7 +14,7 @@ window.onload = function() {
 	//Close the modal when the 'X' is clicked.
 	var span = document.getElementById("close");
 
-	span.onclick = function() {
+	modal.onclick = function() {
 		modal.style.display = "none";
 	}	
 }

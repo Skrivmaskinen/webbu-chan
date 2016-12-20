@@ -1,7 +1,5 @@
 <?php
-$search = trim($_GET['search']);
-if(strlen($search)>=3)
-{
+$search = $_GET['ID'];
 // Koppla upp mot databasen
 $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
 // Sök efter ungefärligt bitnamn
@@ -20,7 +18,11 @@ $result = mysqli_query($connection, "
 		LIMIT
 			1
 ");
-
+// If ID is is invalid, don't print any more info
+$number_of_results = mysqli_num_rows($result);
+if($number_of_results == 0){
+	die("<h3>This item does not exist</h3>");
+}
 $row = mysqli_fetch_array($result);				  
 //Sätt alla vairiabler.
 $itemtype_id = $row['ItemtypeID'];
@@ -77,7 +79,7 @@ else
 
 //Print info
 print(" <h1>$part_name</h1>
-		<img id=\"focus_image\" src=\"$imagePath\" alt=\"lego part $part_name\">
+		<img id=\"focus_image\" src=\"$imagePath\" alt=\"Image of $part_name\">
 		<div id=\"the_modal\" class=\"modal\">
 			<span id=\"close\">&times;</span>
 			<img class=\"modal_content\" id=\"img01\"> 
@@ -90,5 +92,5 @@ print(" <h1>$part_name</h1>
 
 include("part_show_colors.php");
 print("</div>");
-} else{print("<h3>Your search needs to contain least 3 characters.</h3>");}
+
 ?>

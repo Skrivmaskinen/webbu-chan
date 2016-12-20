@@ -8,8 +8,11 @@
 					prev
 					</a>");
 				}
+	$first_result = $start_index+1;
+	$last_result = $start_index+min($number_of_results, $limit);
 	print("</li>
-		<li class='prev_next_buttons'>");
+			<b>showing results $first_result - $last_result</b>
+			<li class='prev_next_buttons'>");
 			if($number_of_results == $limit+1){
 				print("<a href ='$next_page'>
 				next

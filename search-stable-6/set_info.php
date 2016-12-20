@@ -1,8 +1,6 @@
 <?php
 
-$search = trim($_GET['search']);
-if(strlen($search)>=3)
-{
+$search = $_GET['ID'];
 $limit = 20;
  // Connect to database
  $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
@@ -20,7 +18,12 @@ $limit = 20;
 		LIMIT 
 			1
 		");
- 
+// If ID is is invalid, don't print any more info
+$number_of_results = mysqli_num_rows($result);
+if($number_of_results == 0){
+	die("<h3>This item does not exist</h3>");
+}
+
 $row = mysqli_fetch_array($result);						  
 //Set variables
 $set_name = $row['Setname'];
@@ -75,7 +78,7 @@ else
 
 //Print info
 print(" <h1>$set_name</h1>
-	<img id=\"focus_image\" src=\"$imagePath\" alt=\"lego part $part_name\">
+	<img id=\"focus_image\" src=\"$imagePath\" alt=\"Image of $set_name\">
 	<div id=\"the_modal\" class=\"modal\">
 			<span id=\"close\">&times;</span>
 			<img class=\"modal_content\" id=\"img01\"> 
@@ -83,7 +86,5 @@ print(" <h1>$set_name</h1>
 	<p><span>SetID:</span> $set_id</p>
 	<p><span>Year:</span> $year</p>
 	<p><span>Category:</span> $category</p>");
-
-} else{print("<h3>Your search needs to contain least 3 characters.</h3>");}
  
 ?>

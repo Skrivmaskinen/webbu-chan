@@ -40,9 +40,13 @@ $result = mysqli_query($connection, "
 //set limits to original state
 $limit--;
 //Number of results
+$number_of_results = mysqli_num_rows($result);
+if($number_of_results == 0){
+	die("<h3>Your search gave no results");
+}
 $count_search = mysqli_query($connection, "
 		SELECT 
-			count(DISTINCT Setname) as x
+			count(DISTINCT Setname) as count
 		FROM 
 			sets
 		WHERE 
@@ -51,10 +55,10 @@ $count_search = mysqli_query($connection, "
 			SetID LIKE '%$search%')
 
 		");
-$count_row = mysqli_fetch_array($count_search)['x'];
+$count_row = mysqli_fetch_array($count_search)['count'];
 print("<h3>Your search gave $count_row results</h3>");
 
-$number_of_results = mysqli_num_rows($result);
+
 //Link to next page
 $change_page_url = "?";
 
@@ -156,9 +160,9 @@ $next_page = $change_page_url."&start_index=".$start_index_next;
 		//Create tablerow with id, name, year and picture.
 		print("<tr>
 					<td>$set_id</td>
-				   <td><a href='set_page.php?search=$set_id'>$set_name</a></td>
+				   <td><a href='set_page.php?ID=$set_id'>$set_name</a></td>
 				   <td>$year</td>
-				   <td><img src=\"$imagePath\"></td>
+				   <td><img src=\"$imagePath\" alt=\"Image of $set_name\"></td>
 			   </tr>");
 		}
  } // end while

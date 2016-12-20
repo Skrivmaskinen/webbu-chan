@@ -50,9 +50,14 @@ $result = mysqli_query($connection, "
 //set limits to original state
 $limit--;	
 //Number of results
+$number_of_results = mysqli_num_rows($result);
+// If there are no matches to search, don't print any results
+if($number_of_results == 0){
+	die("<h3>Your search gave no results");
+}
 $count_search = mysqli_query($connection, "
 		SELECT 
-			count(DISTINCT PartID) as x
+			count(DISTINCT PartID) as count
 		FROM 
 			inventory, parts
 		
@@ -64,10 +69,9 @@ $count_search = mysqli_query($connection, "
 				PartID LIKE '%$search%')
 
 		");
-$count_row = mysqli_fetch_array($count_search)['x'];
+$count_row = mysqli_fetch_array($count_search)['count'];
 print("<h3>Your search gave $count_row results</h3>");
 
-$number_of_results = mysqli_num_rows($result);
 //Link to next page
 $change_page_url = "?";
 
@@ -168,8 +172,8 @@ $count = 0;
 			//Create table row.
 		print("<tr>
 				<td>$part_id</td>
-				<td><a href='part_page.php?search=$part_id'>$part_name</a></td>
-				<td> <img src=\"$imagePath\"> </td>
+				<td><a href='part_page.php?ID=$part_id'>$part_name</a></td>
+				<td> <img src=\"$imagePath\" alt=\"Image of $part_name\"> </td>
 			   </tr>
 				");
 		}

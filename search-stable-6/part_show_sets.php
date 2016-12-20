@@ -1,7 +1,6 @@
 <?php
-$search = trim($_GET['search']);
-if(strlen($search)>=3)
-{
+$search = $_GET['ID'];
+
 $limit = 20;
 //add 1 for checking if there are more results than $limit 
 $limit++;
@@ -36,15 +35,28 @@ if(isset($_GET['start_index']))
 			$start_index 
 		");
 		
+$count_search = mysqli_query($connection, "
+		SELECT 
+			count(DISTINCT Setname) as count
+		FROM 
+			sets,inventory
+		WHERE
+			sets.SetID = inventory.SetID
+		AND
+			ItemID = '$search'
+		");
+$count_row = mysqli_fetch_array($count_search)['count'];
+print("<h3>This part is found in the following $count_row sets:</h3>");
+		
 //set limits to original state
 $limit--;
 //Link to next page
 $change_page_url = "?";
 
 //Add search to link.
-if(isset($_GET['search'])) 
+if(isset($_GET['ID'])) 
 {
-	$change_page_url = $change_page_url."search=".$_GET['search'];
+	$change_page_url = $change_page_url."ID=".$search;
 }
 
 //Intitialize the start index of next page and previous page.
@@ -124,14 +136,13 @@ $count = 0;
 			//Create table
 			print("<tr>
 						<td>$set_id</td>
-					   <td><a href='set_page.php?search=$set_id'>$set_name</a></td>
+					   <td><a href='set_page.php?ID=$set_id'>$set_name</a></td>
 					   <td>$year</td>
-					   <td><img src=\"$imagePath\" alt=\"lego set $set_name\"></td>
+					   <td><img src=\"$imagePath\" alt=\"Image of $set_name\"></td>
 				   </tr>");
 		}
  } // end while
  
  print("</table>"); //end table
  include ("prev_next_buttons.php");
-} else{print("<h3>Your search needs to contain least 3 characters.</h3>");}
 ?>
