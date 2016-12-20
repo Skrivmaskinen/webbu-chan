@@ -22,7 +22,7 @@
 				<p> <span>INFO!</span> <br>
 					This is a lego search engine. Select <span>part</span> to search for lego parts. 
 					Select <span>set</span> to search for lego sets. 
-					You can only search for the <span>name</span> of the part or set in the search bar. 
+					You can search for the lego <span>name or ID</span> of the part or set in the search bar. 
 					Then press the <span>search button</span>.
 				</p>
 			</div>
