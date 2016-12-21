@@ -12,8 +12,6 @@ if(isset($_GET['start_index']))
 {
 	$start_index = mysqli_real_escape_string($connection, $_GET['start_index']);
 }
-// Connect database
-$connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
 // Search on part name
 $result = mysqli_query($connection, "
 	SELECT 
