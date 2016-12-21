@@ -18,6 +18,11 @@ if(isset($_GET['start_index']))
 
 //Connect to database.
 $connection = mysqli_connect("mysql.itn.liu.se","lego","", "lego");
+//No connection -> exit code with error message
+if(!$connection){
+	die("<h3>Failed to connect to database</h3>");
+}
+//Query to server.
 
 
 //Query to server.

@@ -86,8 +86,8 @@ if(isset($_GET['start_index']))
 }
 
 //"URL" to the next and previous page.
-$prev_page = $change_page_url."&start_index=".$start_index_prev;
-$next_page = $change_page_url."&start_index=".$start_index_next;		
+$prev_page = $change_page_url."&start_index=".$start_index_prev."&showtype=M";
+$next_page = $change_page_url."&start_index=".$start_index_next."&showtype=M";		
 
 
 // Print results
@@ -106,8 +106,8 @@ while ($row = mysqli_fetch_array($result)) {
 	//Set variables
 	$itemtype_id = $row['ItemtypeID'];
 	 
-	$part_name = $row['Minifigname'];
-	$part_id = $row['MinifigID']; 
+	$minifig_name = $row['Minifigname'];
+	$minifig_id = $row['MinifigID']; 
 	$quantity = $row['Quantity'];
 	
 	//Conncet to database to get images
@@ -117,7 +117,7 @@ while ($row = mysqli_fetch_array($result)) {
 				WHERE 
 					ItemTypeID='$itemtype_id' 
 				AND 
-					ItemID='$part_id' 
+					ItemID='$minifig_id' 
 				AND 
 					ColorID='$color_id'");
 					
@@ -131,13 +131,13 @@ while ($row = mysqli_fetch_array($result)) {
 	if($imageInfo['has_jpg']) 
 	{ 
 		// Use JPG if it exists
-		$filename = "$itemtype_id/$part_id.jpg";
+		$filename = "$itemtype_id/$minifig_id.jpg";
 		$imagePath = $prefix.$filename;
 	} 
 	else if($imageInfo['has_gif'] ) 
 	{ 
 		// Use GIF if JPG is unavailable
-		$filename = "$itemtype_id/$part_id.gif";
+		$filename = "$itemtype_id/$minifig_id.gif";
 		$imagePath = $prefix.$filename;
 	} 
 	else 
@@ -150,10 +150,10 @@ while ($row = mysqli_fetch_array($result)) {
 	if($count++ < $limit){
 		//Write table
 		print("<tr>
-				<td>$part_id</td>
-				<td><a href='part_page.php?ID=$part_id'>$part_name</a></td>
+				<td>$minifig_id</td>
+				<td>$minifig_name</a></td>
 				<td> $quantity </td>
-				<td> <img src=\"$imagePath\" alt=\"Image of $part_name\"> </td>
+				<td> <img src=\"$imagePath\" alt=\"Image of $minifig_name\"> </td>
 			   </tr>
 				");
 	}

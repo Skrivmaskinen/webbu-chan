@@ -292,13 +292,13 @@ ul {
 .show_type_buttons {
 	font-family: 'Bungee', 'cursive';
 	font-size: 20px;
-	color: black;
+	color: #ff9900;
 	display: inline;
 	margin: 50px;
 }
 
 .show_type_buttons a{
-	color: #ff9900;
+	color: black;
 }
 
 .show_type_buttons a:active {
