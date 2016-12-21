@@ -86,7 +86,7 @@ print(" <h1>$set_name</h1>
 	<img id=\"focus_image\" src=\"$imagePath\" onclick=\"modalImage()\" alt=\"Image of $set_name\">
 	<div id=\"the_modal\" class=\"modal\">
 			<span id=\"close\">&times;</span>
-			<img class=\"modal_content\" id=\"img01\"> 
+			<img class=\"modal_content\" id=\"img01\" alt=\"Image of $set_name\"> 
 	</div>
 	<p><span>SetID:</span> $set_id</p>
 	<p><span>Year:</span> $year</p>
