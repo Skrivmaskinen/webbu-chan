@@ -83,7 +83,7 @@ else
 
 //Print info
 print(" <h1>$set_name</h1>
-	<img id=\"focus_image\" src=\"$imagePath\" alt=\"Image of $set_name\">
+	<img id=\"focus_image\" src=\"$imagePath\" onclick=\"modalImage()\" alt=\"Image of $set_name\">
 	<div id=\"the_modal\" class=\"modal\">
 			<span id=\"close\">&times;</span>
 			<img class=\"modal_content\" id=\"img01\"> 
