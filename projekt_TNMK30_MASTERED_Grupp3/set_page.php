@@ -1,6 +1,7 @@
 <?php
 	include("header.php");
 ?>
+			<h2>Lego Set</h2>
 			<div class="itemdetails">
 				<?php include("set_info.php"); ?>
 			</div>
